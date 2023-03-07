@@ -2,3 +2,7 @@
   color: gray !important;
   opacity: 1;
 }
+
+.modal-content {
+  font-size: 1.4em;
+}

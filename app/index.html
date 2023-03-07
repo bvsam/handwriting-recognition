@@ -13,7 +13,7 @@
   </head>
   <body>
     <div id="topBar" class="bg-dark text-light">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between input-group-lg">
         <input
           class="m-3 flex-fill form-control bg-dark text-light"
           type="text"
@@ -46,10 +46,10 @@
       aria-labelledby="aboutModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="aboutModalLabel">About</h1>
+            <h1 class="modal-title" id="aboutModalLabel">About</h1>
             <button
               type="button"
               class="btn-close"
@@ -84,7 +84,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-danger"
+              class="btn btn-danger btn-lg"
               data-bs-dismiss="modal"
             >
               Close
@@ -113,11 +113,19 @@
     <script src="model.js"></script>
     <script src="handwriting.js"></script>
     <script>
+      // Toggle the about modal on page load
+      var aboutModal = new bootstrap.Modal(
+        document.getElementById("aboutModal")
+      );
+      aboutModal.toggle();
+
+      // Copy text from the input field to the clipboard
       function copyText(text) {
         text = document.getElementById("userInput").value;
         console.log(text);
         navigator.clipboard.writeText(text);
       }
+      // Clear the input field
       function clearText() {
         document.getElementById("userInput").value = "";
       }
